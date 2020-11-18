@@ -4,6 +4,7 @@ class Vtex < Formula
   url "https://github.com/vtex/toolbelt/releases/download/v2.119.1/vtex-v2.119.1-darwin-x64.tar.gz"
   sha256 "5ad3636497a9652d20ea9ff033be89b6a439b69a42b04ae86c63aad2185966d6"
   license "MIT"
+  version "2.119.1"
 
   def install
     inreplace "bin/vtex", /^CLIENT_HOME=/, "export VTEX_OCLIF_CLIENT_HOME=#{lib/"client"}\nCLIENT_HOME="
