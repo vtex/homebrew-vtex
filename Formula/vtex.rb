@@ -14,7 +14,7 @@ class Vtex < Formula
   end
 
   def caveats; <<~EOS
-    VTEX installed!
+    Success: VTEX CLI release installed. Run vtex help to see the commands.
   EOS
   end
 
