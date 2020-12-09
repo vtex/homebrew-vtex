@@ -1,0 +1,21 @@
+name: bump-brew
+
+on:
+  repository_dispatch:
+    types: [bump-brew]
+      
+jobs:
+  bump-brew:
+      runs-on: macos-latest
+      steps: 
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Bump Version
+        run: bash bump-version.sh
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v4
+        with:
+          message: "Automatic brew bump version"
+          add: .
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
