@@ -19,3 +19,13 @@ jobs:
           add: .
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Get deploy version
+        id: branch_name
+        run: |
+          echo ::set-output name=SOURCE_TAG::$(curl https://api.github.com/repos/vtex/toolbelt/releases/latest -s | jq .name -r)
+      - name: Trigger slack notification bot [Success]
+        if: success()
+        run: 'curl --data "status=success&user=${{ github.actor }}&platform=brew&version=${{ steps.branch_name.outputs.SOURCE_TAG }}" --header "token: super-secret-token" https://master--vtex.myvtex.com/_v/public/toolbelt-notification/status'
+      - name: Trigger slack notification bot [Fail]
+        if: failure()
+        run: 'curl --data "status=failed&user=${{ github.actor }}&platform=brew&version=${{ steps.branch_name.outputs.SOURCE_TAG }}" --header "token: super-secret-token" https://master--vtex.myvtex.com/_v/public/toolbelt-notification/status'
