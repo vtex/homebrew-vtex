@@ -1,8 +1,8 @@
-name: bump-brew
+name: publish-stable-brew
 
 on:
   repository_dispatch:
-    types: [bump-brew]
+    types: [publish-stable-brew]
       
 jobs:
   bump-brew:
