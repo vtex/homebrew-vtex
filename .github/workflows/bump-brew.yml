@@ -13,19 +13,18 @@ jobs:
       - name: Bump Version
         run: bash bump-version.sh
       - name: Get deploy version
-        id: branch_name
-        run: |
-          echo ::set-output name=SOURCE_TAG::$(curl https://api.github.com/repos/vtex/toolbelt/releases/latest -s | jq .tag_name -r)
+        id: deployed-version
+        run: echo '::set-output name=SOURCE_TAG::$(curl https://api.github.com/repos/vtex/toolbelt/releases/latest -s | jq .tag_name -r)'
       - name: Commit changes
         uses: EndBug/add-and-commit@v4
         with:
-          message: "[Automatic] Release ${{ steps.branch_name.outputs.SOURCE_TAG }}"
+          message: "[Automatic] Release ${{ steps.deployed-version.outputs.SOURCE_TAG }}"
           add: .
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Trigger slack notification bot [Success]
         if: success()
-        run: 'curl --connect-timeout 30 --retry 3 --retry-delay 120 --data "status=success&user=${{ github.actor }}&platform=Brew&version=${{ steps.branch_name.outputs.SOURCE_TAG }}" --header "token: ${{ secrets.TOOLBELT_NOTIFICATION_KEY }}" https://master--vtex.myvtex.com/_v/public/toolbelt-notification/status'
+        run: 'curl --connect-timeout 30 --retry 3 --retry-delay 120 --data "status=success&user=${{ github.actor }}&platform=Brew&version=${{ steps.deployed-version.outputs.SOURCE_TAG }}" --header "token: ${{ secrets.TOOLBELT_NOTIFICATION_KEY }}" https://master--vtex.myvtex.com/_v/public/toolbelt-notification/status'
       - name: Trigger slack notification bot [Fail]
         if: failure()
-        run: 'curl --connect-timeout 30 --retry 3 --retry-delay 120 --data "status=failed&user=${{ github.actor }}&platform=Brew&version=${{ steps.branch_name.outputs.SOURCE_TAG }}" --header "token: ${{ secrets.TOOLBELT_NOTIFICATION_KEY }}" https://master--vtex.myvtex.com/_v/public/toolbelt-notification/status'
+        run: 'curl --connect-timeout 30 --retry 3 --retry-delay 120 --data "status=failed&user=${{ github.actor }}&platform=Brew&version=${{ steps.deployed-version.outputs.SOURCE_TAG }}" --header "token: ${{ secrets.TOOLBELT_NOTIFICATION_KEY }}" https://master--vtex.myvtex.com/_v/public/toolbelt-notification/status'
