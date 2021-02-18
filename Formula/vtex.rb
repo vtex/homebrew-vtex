@@ -1,9 +1,9 @@
 class Vtex < Formula
   desc "CLI tool for creating and managing VTEX apps"
   homepage "https://github.com/vtex/toolbelt"
-  url "https://vtex-toolbelt-test.s3.amazonaws.com/vtex-v2.121.3/vtex-v2.121.3-darwin-x64.tar.gz"
-  version "2.121.3"
-  sha256 "12565d6ad474b11fd0ac55a57da9714bf8445325916d4e85f100a9c970e54e41"
+  url "https://vtex-toolbelt-test.s3.amazonaws.com/vtex-v2.121.4/vtex-v2.121.4-darwin-x64.tar.gz"
+  version "2.121.4"
+  sha256 "4a482d5ee3af809a9d430594488089762bcf26faa3d362892044ba68f5597000"
   version "2.119.4"
 
   def install
