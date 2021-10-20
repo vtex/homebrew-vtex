@@ -4,7 +4,6 @@ class Vtex < Formula
   url "https://vtex-toolbelt-test.s3.amazonaws.com/vtex-v3.0.0/vtex-v3.0.0-darwin-x64.tar.gz"
   version "3.0.0"
   sha256 "9192c6ff9cf1a30ccaea984245c01647a6d78ea72b7dc53d272c986d3f16281b"
-  version "2.119.4"
 
   def install
     inreplace "bin/vtex", /^CLIENT_HOME=/, "export VTEX_OCLIF_CLIENT_HOME=#{lib/"client"}\nCLIENT_HOME="
