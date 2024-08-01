@@ -1,4 +1,4 @@
-function replace-line-in-file () {
+function replace_line_in_file () {
     file="$1"
     line_num="$2"
     replacement="$3"
@@ -22,9 +22,9 @@ version="  version \"$version\""
 sha256="  sha256 \"$sha256\""
 
 echo "Bumping brew version..."
-replace-line-in-file "$filePath" 4 "$url"
-replace-line-in-file "$filePath" 5 "$version"
-replace-line-in-file "$filePath" 6 "$sha256"
+replace_line_in_file "$filePath" 4 "$url"
+replace_line_in_file "$filePath" 5 "$version"
+replace_line_in_file "$filePath" 6 "$sha256"
 
 fileUrlData=$(sed -n 4p "$filePath")
 fileVersionData=$(sed -n 5p "$filePath")
