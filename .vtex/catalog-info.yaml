@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: homebrew-vtex
+  description: Push the Toolbelt to homebrew
+  tags:
+    - shell
+  annotations:
+    vtex.com/janus-acronym: ""
+    vtex.com/o11y-os-index: ""
+    grafana/dashboard-selector: ""
+    github.com/project-slug: vtex/homebrew-vtex
+    backstage.io/techdocs-ref: dir:../
+spec:
+  lifecycle: stable
+  owner: apps
+  type: other
+  dependsOn:
+    - component:toolbelt
