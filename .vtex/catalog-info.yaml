@@ -11,6 +11,7 @@ metadata:
     grafana/dashboard-selector: ""
     github.com/project-slug: vtex/homebrew-vtex
     backstage.io/techdocs-ref: dir:../
+    vtex.com/application-id: 7U64UVH4
 spec:
   lifecycle: stable
   owner: te-0029
