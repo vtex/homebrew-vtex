@@ -1,9 +1,9 @@
 class Vtex < Formula
   desc "CLI tool for creating and managing VTEX apps"
   homepage "https://github.com/vtex/toolbelt"
-  url "https://vtex-toolbelt-test.s3.amazonaws.com/vtex-v4.2.2/vtex-v4.2.2-darwin-x64.tar.gz"
-  version "4.2.2"
-  sha256 "9423b06ea480bad8403c250bacd9b27bb1e1abf0bc139151942063c47bff7f94"
+  url "https://vtex-toolbelt-test.s3.amazonaws.com/vtex-v4.3.0/vtex-v4.3.0-darwin-x64.tar.gz"
+  version "4.3.0"
+  sha256 "d1de9118ed51a042cac149a56ad1423b8eccfb8af524bea60858c7e80579c13d"
 
   def install
     inreplace "bin/vtex", /^CLIENT_HOME=/, "export VTEX_OCLIF_CLIENT_HOME=#{lib/"client"}\nCLIENT_HOME="
