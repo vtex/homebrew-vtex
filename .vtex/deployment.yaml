@@ -1,5 +1,5 @@
 - name: homebrew-vtex
-  referenceId: PLACEHOLDER
+  referenceId: 7U64UVH4
   build:
     provider: dkcicd
     pipelines:
