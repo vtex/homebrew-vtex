@@ -13,6 +13,8 @@ metadata:
     backstage.io/techdocs-ref: dir:../
     vtex.com/application-id: 7U64UVH4
     vtex.com/platform-flow-id: CommDev#1
+    vtex.com/sdd-check-skip: 'true'
+    vtex.com/sdd-check-skip-reason: Auxiliar project for just homebrew updates
 spec:
   lifecycle: stable
   owner: te-0029
